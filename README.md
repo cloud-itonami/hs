@@ -108,8 +108,8 @@ identity の決定であって、README を書く作業の範囲ではない。�
 JVM を使わずに済む経路も用意してある。
 
 ```bash
-clojure -M:test    # 9 tests / 213 assertions
-clojure -M:lint    # errors: 0, warnings: 1（既知）
+kbb -M:test    # 9 tests / 213 assertions
+kbb -M:lint    # errors: 0, warnings: 1（既知）
 ```
 
 ## ライセンス

@@ -34,7 +34,7 @@ cd hs
 ## 2. テストを走らせる
 
 ```bash
-clojure -M:test
+kbb -M:test
 ```
 
 ```
@@ -54,7 +54,7 @@ Ran 9 tests containing 213 assertions.
 ## 3. lint
 
 ```bash
-clojure -M:lint
+kbb -M:lint
 ```
 
 ```
@@ -75,7 +75,7 @@ linting took <N>ms, errors: 0, warnings: 1
 **それを信じずに、その場で両方向を出す。**
 
 ```bash
-nbb --classpath src -e '
+kbb --backend sci --classpath src -e '
 (ns probe (:require [hs.murakumo :as m]))
 (let [all (into {} (map (fn [g] [g true]) m/common-gates))
       one-short (dissoc all (first m/common-gates))]
@@ -109,7 +109,7 @@ fleet-wide, zero attestation -> total effects: 0
 `:ready` のときに返るのは effect の**記述**であって、書き込みではない:
 
 ```bash
-nbb --classpath src -e '
+kbb --backend sci --classpath src -e '
 (ns probe (:require [hs.murakumo :as m]))
 (let [all (into {} (map (fn [g] [g true]) m/common-gates))]
   (prn (first (:effects (m/cell-plan :health {:attestations all :request-id "req-1"})))))'
