@@ -6,7 +6,7 @@
 subheading）の階層、GTIN・CPC・ISIC との対応付け、国別の関税・規制オーバーレイ。
 
 この repo が実際に持っているのは、そのアクターの
-**純粋な `.cljc` 計画境界 1 本だけ** —— `hs.murakumo`（`src/hs/murakumo.cljc`）。
+**純粋な `.cljc` 計画境界 1 本だけ** —— `hs.murakumo`（`src/hs/murakumo.cljk`）。
 
 **この repo に HS コードのデータは 1 件も無い。分類を行うコードも無い。**
 ネットワークに触る関数も、グラフに問い合わせる関数も、PDS に書く関数も 1 つも
@@ -23,8 +23,8 @@ stays in runtime methods"` と書いている。
 
 | path | bytes | 何か |
 |---|---:|---|
-| `src/hs/murakumo.cljc` | 8,414 | 唯一の実装。下記の計画境界。15 セル |
-| `test/hs/murakumo_test.cljc` | 4,181 | その契約テスト（9 tests / 213 assertions） |
+| `src/hs/murakumo.cljk` | 8,414 | 唯一の実装。下記の計画境界。15 セル |
+| `test/hs/murakumo_test.cljk` | 4,181 | その契約テスト（9 tests / 213 assertions） |
 | `actor-manifest.jsonld` | 6,544 | アクター identity + governance + パイプラインの宣言 |
 | `actor-manifest.test.ts` | 2,025 | 上の manifest の vitest 検査。**この repo では走らない**（下記） |
 | `deps.edn` | 398 | `:test`（cognitect test-runner）/ `:lint`（clj-kondo） |
@@ -46,7 +46,7 @@ one gate missing -> :blocked  effects: 0     ← 7 本中 1 本欠けただけ�
 all 7 attested   -> :ready    effects: 1
 ```
 
-7 gate は `common-gates`（`src/hs/murakumo.cljc`、キーワードの綴りはこのとおり）:
+7 gate は `common-gates`（`src/hs/murakumo.cljk`、キーワードの綴りはこのとおり）:
 `:council-charter-attestation` / `:no-platform-held-key-baseline` /
 `:no-probing-baseline` / `:murakumo-only-inference-baseline` /
 `:did-primary-baseline` / `:append-only-gate-baseline` /
@@ -82,7 +82,7 @@ manifest の中身を検査したいなら `jq` で直接引く（quickstart の
 | 配信中の did.json | `did:web:etzhayyim.com:actor:hs` | **200** |
 | repo の `.well-known/did.json` | `did:web:etzhayyim.com:actor:hs` | 同上（ただし中身が配信版と違う） |
 | `actor-manifest.jsonld` の `@id` | `did:web:hs.etzhayyim.com` | **NXDOMAIN** |
-| `src/hs/murakumo.cljc` の `actor-did` | `did:web:hs.etzhayyim.com` | **NXDOMAIN** |
+| `src/hs/murakumo.cljk` の `actor-did` | `did:web:hs.etzhayyim.com` | **NXDOMAIN** |
 
 `hs.etzhayyim.com` は DNS レコードが無い。にもかかわらず `actor-did` は
 **計画される全レコードの `:actorDid` に刻まれる**。`at://hs.etzhayyim.com` は
