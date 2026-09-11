@@ -58,7 +58,7 @@ clojure -M:lint
 ```
 
 ```
-src/hs/murakumo.cljc:159:14: warning: unused binding input
+src/hs/murakumo.cljk:159:14: warning: unused binding input
 linting took <N>ms, errors: 0, warnings: 1
 ```
 
@@ -178,7 +178,7 @@ https://etzhayyim.github.io/com-etzhayyim-hs/did.json      404   <- 旧値（als
                                      <- hs.etzhayyim.com は NXDOMAIN（空行）
 ```
 
-2 行目の `000` は `curl: (6) Could not resolve host`。**`src/hs/murakumo.cljc` の
+2 行目の `000` は `curl: (6) Could not resolve host`。**`src/hs/murakumo.cljk` の
 `actor-did` と `actor-manifest.jsonld` の `@id` が指す先は実在しない。**
 `dig` が**何も返さない**のが現在の期待値で、ここに IP が出るようになったら
 README の Identity 節を測り直すこと。
